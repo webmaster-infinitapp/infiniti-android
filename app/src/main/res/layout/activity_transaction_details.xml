@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.login.LoginActivity">
+
+    <data>
+
+        <variable
+            name="transaction"
+            type="com.payproapp.model.Transaction" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include
+            android:id="@+id/app_bar"
+            layout="@layout/app_bar_default"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/app_bar">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/transaction_details_destinatary"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:paddingStart="25dp"
+                    android:paddingTop="30dp"
+                    android:paddingEnd="25dp"
+                    android:paddingBottom="20dp"
+                    android:text="@{String.format(@string/label_transaction_wallet_address, transaction.destination)}"
+                    android:textColor="@color/primaryTextColor"
+                    android:textSize="@dimen/font_small" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:paddingStart="25dp"
+                    android:paddingEnd="25dp"
+                    android:layout_height="1dp"
+                    android:background="@color/settings_separator_color" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/transaction_details_amount"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:paddingStart="25dp"
+                    android:paddingEnd="25dp"
+                    android:paddingTop="20dp"
+                    android:paddingBottom="20dp"
+                    android:text="@{String.format(@string/label_transaction_amount_symbol, (transaction.ether + ' ' + transaction.token))}"
+                    android:textColor="@color/primaryTextColor"
+                    android:textSize="@dimen/font_small" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:paddingStart="25dp"
+                    android:paddingEnd="25dp"
+                    android:background="@color/settings_separator_color" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?selectableItemBackground"
+                    android:clickable="true"
+                    android:paddingStart="25dp"
+                    android:paddingEnd="25dp"
+                    android:focusable="true"
+                    android:paddingTop="20dp"
+                    android:paddingBottom="20dp"
+                    android:text="@{String.format(@string/label_transaction_message, transaction.message)}"
+                    android:textColor="@color/primaryTextColor"
+                    android:textSize="@dimen/font_small" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:paddingStart="25dp"
+                    android:paddingEnd="25dp"
+                    android:background="@color/settings_separator_color" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?selectableItemBackground"
+                    android:clickable="true"
+                    android:paddingStart="25dp"
+                    android:paddingEnd="25dp"
+                    android:focusable="true"
+                    android:paddingTop="20dp"
+                    android:paddingBottom="20dp"
+                    android:text="@{String.format(@string/label_transaction_status, transaction.status)}"
+                    android:textColor="@color/primaryTextColor"
+                    android:textSize="@dimen/font_small" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:paddingStart="25dp"
+                    android:paddingEnd="25dp"
+                    android:background="@color/settings_separator_color" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:paddingStart="25dp"
+                    android:paddingEnd="25dp"
+                    android:paddingTop="20dp"
+                    android:paddingBottom="20dp"
+                    android:text="@{String.format(@string/label_transaction_confirmations, transaction.num)}"
+                    android:textColor="@color/primaryTextColor"
+                    android:textSize="@dimen/font_small" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:paddingStart="25dp"
+                    android:paddingEnd="25dp"
+                    android:layout_height="1dp"
+                    android:background="@color/settings_separator_color" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/transaction_details_hash"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:paddingTop="20dp"
+                    android:paddingStart="25dp"
+                    android:paddingEnd="25dp"
+                    android:paddingBottom="20dp"
+                    android:text="@{String.format(@string/label_transaction_hash, transaction.hashTransaction)}"
+                    android:textColor="@color/primaryTextColor"
+                    android:textSize="@dimen/font_small" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:paddingStart="25dp"
+                    android:paddingEnd="25dp"
+                    android:background="@color/settings_separator_color" />
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

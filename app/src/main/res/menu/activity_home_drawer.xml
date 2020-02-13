@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group
+        android:id="@+id/group_account"
+        android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/nav_account"
+            android:title="@string/menu_account" />
+        <item
+            android:id="@+id/nav_send"
+            android:title="@string/menu_send" />
+        <item
+            android:id="@+id/nav_receive"
+            android:title="@string/menu_receive" />
+
+    </group>
+
+    <item android:title="">
+        <menu>
+            <group
+                android:id="@+id/group_settings"
+                android:checkableBehavior="single">
+                <item
+                    android:id="@+id/nav_settings"
+                    android:title="@string/menu_settings" />
+                <item
+                    android:id="@+id/nav_support"
+                    android:title="@string/menu_support" />
+
+                <item
+                    android:id="@+id/nav_logout"
+                    android:title="@string/menu_logout" />
+
+            </group>
+        </menu>
+    </item>
+</menu>

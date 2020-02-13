@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.home.receive.ReceiveFragment">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.payproapp.ui.home.HomeViewModel" />
+
+        <variable
+            name="privateKey"
+            type="String" />
+
+        <variable
+            name="onCopyPrivateKey"
+            type="android.view.View.OnClickListener" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.core.widget.ContentLoadingProgressBar
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:visibleGone="@{viewModel.showProgressBar}" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="20dp"
+            app:visibleGone="@{!viewModel.showProgressBar}">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/your_private_key"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/label_your_private_key"
+                android:textSize="@dimen/font_small"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:drawableEnd="@drawable/copy_icon"
+                android:drawablePadding="8dp"
+                android:onClick="@{onCopyPrivateKey}"
+                android:text="@{privateKey}"
+                android:textColor="@color/primaryDarkColor"
+                android:textSize="@dimen/font_tiny"
+                app:layout_constraintLeft_toLeftOf="@id/your_private_key"
+                app:layout_constraintTop_toBottomOf="@id/your_private_key"
+                tools:text="0xf192c4c7C62Bb876f39eF589B2cA3377bF5BCa4d" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

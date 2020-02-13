@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="primaryColor">#bfcbd8</color>
+    <color name="primaryLightColor">#f2feff</color>
+    <color name="primaryDarkColor">#8492A6</color>
+    <color name="secondaryColor">#3b4859</color>
+    <color name="secondaryLightColor">#667386</color>
+    <color name="secondaryDarkColor">#132130</color>
+    <color name="primaryTextColor">#1f2d3d</color>
+    <color name="secondaryTextColor">#ffffff</color>
+    <color name="blueish">#6666FF</color>
+
+    <color name="android_default_background">#fafafa</color>
+
+    <color name="settings_separator_color">#D3DCE6</color>
+    <color name="settings_big_separator_color">#E0E6ED</color>
+
+    <color name="settings_header_color">#47525E</color>
+</resources>

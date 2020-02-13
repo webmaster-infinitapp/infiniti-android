@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.home.receive.ReceiveFragment">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.payproapp.ui.home.HomeViewModel" />
+
+        <variable
+            name="gasLimit"
+            type="String" />
+
+        <variable
+            name="gasPrice"
+            type="String" />
+
+        <variable
+            name="passwordListener"
+            type="android.view.View.OnClickListener" />
+
+        <variable
+            name="privateKeysListener"
+            type="android.view.View.OnClickListener" />
+
+        <variable
+            name="gasPriceListener"
+            type="android.view.View.OnClickListener" />
+
+        <variable
+            name="gasLimitListener"
+            type="android.view.View.OnClickListener" />
+
+        <variable
+            name="aboutUsListener"
+            type="android.view.View.OnClickListener" />
+
+        <variable
+            name="rateUsListener"
+            type="android.view.View.OnClickListener" />
+
+        <variable
+            name="infoListener"
+            type="android.view.View.OnClickListener" />
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/settings_settings_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="15dp"
+                android:text="@string/label.wallet_settings"
+                android:textColor="@color/settings_header_color"
+                android:textSize="@dimen/font_tiny" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/settings_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:onClickListener="@{passwordListener}"
+                    android:paddingStart="25dp"
+                    android:paddingTop="30dp"
+                    android:paddingEnd="25dp"
+                    android:paddingBottom="20dp"
+                    android:text="@string/label.password"
+                    android:textColor="@color/primaryTextColor"
+                    android:textSize="@dimen/font_small" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginEnd="25dp"
+                    android:background="@color/settings_separator_color" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/settings_private_keys"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:onClickListener="@{privateKeysListener}"
+                    android:paddingStart="25dp"
+                    android:paddingTop="20dp"
+                    android:paddingEnd="25dp"
+                    android:paddingBottom="20dp"
+                    android:text="@string/label.private_keys"
+                    android:textColor="@color/primaryTextColor"
+                    android:textSize="@dimen/font_small" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginEnd="25dp"
+                    android:background="@color/settings_separator_color" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/settings_gas_price"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:onClickListener="@{gasPriceListener}"
+                    android:paddingStart="25dp"
+                    android:paddingTop="20dp"
+                    android:paddingEnd="25dp"
+                    android:paddingBottom="20dp">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="25dp"
+                        android:layout_marginEnd="25dp"
+                        android:text="@string/label.gas_price"
+                        android:textColor="@color/primaryTextColor"
+                        android:textSize="@dimen/font_small" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/settings_gas_price_value"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:text="@{gasPrice}"
+                        android:textColor="@color/primaryDarkColor"
+                        android:textSize="@dimen/font_tiny"
+                        android:visibility="invisible"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:visibleGone="@{!viewModel.showProgressBar}"
+                        tools:text="50000" />
+
+                    <androidx.core.widget.ContentLoadingProgressBar
+                        style="?android:attr/progressBarStyleLarge"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:visibleGone="@{viewModel.showProgressBar}" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginEnd="25dp"
+                    android:background="@color/settings_separator_color" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/settings_gas_limit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:onClickListener="@{gasLimitListener}"
+                    android:paddingStart="25dp"
+                    android:paddingTop="20dp"
+                    android:paddingEnd="25dp"
+                    android:paddingBottom="20dp">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="@string/label.gas_limit"
+                        android:textColor="@color/primaryTextColor"
+                        android:textSize="@dimen/font_small" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/settings_gas_limit_value"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:text="@{gasLimit}"
+                        android:textColor="@color/primaryDarkColor"
+                        android:textSize="@dimen/font_tiny"
+                        android:visibility="invisible"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:visibleGone="@{!viewModel.showProgressBar}"
+                        tools:text="50000" />
+
+                    <androidx.core.widget.ContentLoadingProgressBar
+                        style="?android:attr/progressBarStyleLarge"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:visibleGone="@{viewModel.showProgressBar}" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:layout_marginBottom="20dp"
+                android:background="@color/settings_big_separator_color" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/settings_app_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:text="@string/label.app"
+                android:textColor="@color/settings_header_color"
+                android:textSize="@dimen/font_tiny" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/settings_about_us"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:onClickListener="@{aboutUsListener}"
+                    android:paddingStart="25dp"
+                    android:paddingTop="30dp"
+                    android:paddingEnd="25dp"
+                    android:paddingBottom="20dp"
+                    android:text="@string/label.about_us"
+                    android:textColor="@color/primaryTextColor"
+                    android:textSize="@dimen/font_small" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginEnd="25dp"
+                    android:background="@color/settings_separator_color" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/settings_rates_us"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:onClickListener="@{rateUsListener}"
+                    android:paddingStart="25dp"
+                    android:paddingTop="20dp"
+                    android:paddingEnd="25dp"
+                    android:paddingBottom="20dp"
+                    android:text="@string/label.rates_us"
+                    android:textColor="@color/primaryTextColor"
+                    android:textSize="@dimen/font_small" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginEnd="25dp"
+                    android:background="@color/settings_separator_color" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/settings_info"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:onClickListener="@{infoListener}"
+                    android:paddingStart="25dp"
+                    android:paddingTop="20dp"
+                    android:paddingEnd="25dp"
+                    android:paddingBottom="20dp"
+                    android:text="@string/label.info"
+                    android:textColor="@color/primaryTextColor"
+                    android:textSize="@dimen/font_small" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginEnd="25dp"
+                    android:background="@color/settings_separator_color" />
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</layout>
